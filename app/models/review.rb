@@ -5,7 +5,6 @@ class Review < ActiveRecord::Base
 
   validates :product_id, presence: true
   validates :user_id, presence: true
-  validates :rating, inclusion: {in: 1..5}
   validate :has_rating_or_description?
 
   def has_rating_or_description?
