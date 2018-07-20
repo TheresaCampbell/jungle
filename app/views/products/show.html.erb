@@ -29,7 +29,7 @@
     <div class="row">
       <h2>Submit a Review</h2>
 
-      <%= form_for :review do |f| %>
+      <%= form_for [@product, @review] do |f| %>
         <p>
           Description : <%= f.text_field :description %><br />
           Rating : <%= f.select :rating, [1, 2, 3, 4, 5]%><br />
@@ -44,14 +44,14 @@
 
         <% @product.reviews.each do |review| %>
 
-          <% @reviewer = User.find_by(id: review.user_id) %>
+          <% @reviewer = User.find(review.user_id) %>
 
           <dt>User</dt>
             <dd><%= @reviewer.first_name %></dd>
             <dt>Description</dt>
             <dd><%= review.description %></dd>
             <dt>Rating</dt>
-            <dd><%= review.rating %>/5 </dd>
+            <dd><%= review.rating %>/5 </dd><br/>
 
           <% end %>
 
