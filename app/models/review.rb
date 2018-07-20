@@ -1,10 +1,12 @@
-class Rating < ActiveRecord::Base
+class Review < ActiveRecord::Base
+
   belongs_to :product
   belongs_to :user
 
   validates :product_id, presence: true
   validates :user_id, presence: true
-  validates :has_rating_or_description?
+  validates :rating, inclusion: {in: 1..5}
+  validate :has_rating_or_description?
 
   def has_rating_or_description?
     if rating == nil || description == nil
@@ -12,4 +14,5 @@ class Rating < ActiveRecord::Base
       errors.add(:description, "needs a rating or a description")
     end
   end
+
 end
