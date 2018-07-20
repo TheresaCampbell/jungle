@@ -1,11 +1,9 @@
 class UserMailer < ApplicationMailer
   default from: 'no-reply@jungle.com'
 
-  def receipt_email(order, orderItems, orderID)
+  def receipt_email(order)
     @order = order
-    @orderItems = orderItems
-    @orderID = orderID
 
-    mail(to: 't.campbell@sasktel.net', subject: @orderID)
+    mail(to: @order.email, subject: @order.id)
   end
 end

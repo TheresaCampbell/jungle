@@ -9,13 +9,11 @@
       Your order has been successfully placed and will ship soon.
     </p>
     <h2>
-      Order Details for order # <%= @orderID %>:
+      Order Details for order # <%= @order.id %>:
     </h2>
     <% @order_total = 0 %>
 
-    <h1> <%= @orderItems %> </h1>
-
-    <% @orderItems.each do |item| %>
+    <% @order.line_items.each do |item| %>
 
       <% quantity = item.quantity %>
 

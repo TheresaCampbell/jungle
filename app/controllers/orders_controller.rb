@@ -4,8 +4,6 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @orderItems = @order.line_items
     @orderID = @order.id
-
-    UserMailer.receipt_email(@order, @orderItems, @orderID).deliver_now
   end
 
   def create
@@ -13,6 +11,7 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
 
     if order.valid?
+      UserMailer.receipt_email(order).deliver_now
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
