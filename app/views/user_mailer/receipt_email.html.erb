@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for shopping in the Jungle!</h1>
+    <p>
+      Your order has been successfully placed and will ship soon.
+    </p>
+    <h2>
+      Order Details for order # <%= @orderID %>:
+    </h2>
+    <% @order_total = 0 %>
+
+    <h1> <%= @orderItems %> </h1>
+
+    <% @orderItems.each do |item| %>
+
+      <% quantity = item.quantity %>
+
+      <% if item = Product.find_by(id: item.product_id) %>
+        <% item_total = item.price * quantity %>
+        <% @order_total += item_total %>
+
+        <p><%= quantity %> x <%= item.name %> @ <%= item.price %></p>
+        <p><%= item.description %></p>
+        <p>Subtotal: <%= item_total %></p>
+
+      <% end %>
+
+    <% end %>
+
+    <p>TOTAL: <%= @order_total %></p>
+
+  </body>
+</html>
