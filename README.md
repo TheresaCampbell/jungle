@@ -30,3 +30,10 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 ## Known Issues
 
 Cart doesn't update (empty) when a user logs out.
+
+## Screenshots
+
+!["Screenshot code for creating a new category (accessible by admins only)."](https://github.com/TheresaCampbell/jungle/blob/master/docs/admin-create-category-CODE.png?raw=true)
+!["Screenshot of creating a new category (accessible by admins only)."](https://github.com/TheresaCampbell/jungle/blob/master/docs/admin-create-category.png?raw=true)
+!["Screenshot of homepage.""](https://github.com/TheresaCampbell/jungle/blob/master/docs/homepage.png?raw=true)
+!["Screenshot of code for product reviews."](https://github.com/TheresaCampbell/jungle/blob/master/docs/product-reviews.png?raw=true)
