@@ -46,6 +46,8 @@
     <div class="row">
       <dl class="dl-horizontal">
 
+        <h2>Reviews</h2>
+
         <% @product.reviews.reverse_each do |review| %>
 
           <% @reviewer = User.find(review.user_id) %>
